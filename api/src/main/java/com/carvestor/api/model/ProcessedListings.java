@@ -8,13 +8,13 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Listing {
+public class ProcessedListings {
 
     @Id
-    private Long id;
+    private Integer id;
     private String listingUrl;
-    private Integer price;
-    private Enum<Currency> price_currency;
+    private Double price;
+    private String priceCurrency;
     private String brand;
     private String model;
     private String mileage;
