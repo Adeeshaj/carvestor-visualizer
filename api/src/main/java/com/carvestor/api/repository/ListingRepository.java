@@ -1,8 +1,10 @@
 package com.carvestor.api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.carvestor.api.model.Listing;
+import com.carvestor.api.model.ProcessedListings;
+import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface ListingRepository extends JpaRepository<Listing, Long> {
-    Listing findByModel(String model);
+@Repository
+public interface ListingRepository extends JpaRepository<ProcessedListings, Long>, JpaSpecificationExecutor<ProcessedListings> {
 }

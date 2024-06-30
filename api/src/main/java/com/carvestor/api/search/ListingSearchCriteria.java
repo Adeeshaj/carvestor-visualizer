@@ -1,20 +1,11 @@
-package com.carvestor.api.model;
+package com.carvestor.api.search;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-@Entity
-public class Listing {
-
-    @Id
-    private Long id;
-    private String listingUrl;
-    private Integer price;
-    private Enum<Currency> price_currency;
+public class ListingSearchCriteria {
     private String brand;
     private String model;
     private String mileage;
