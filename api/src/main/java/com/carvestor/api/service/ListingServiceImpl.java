@@ -12,6 +12,7 @@ import java.util.OptionalDouble;
 @Service
 public class ListingServiceImpl implements ListingService {
     private final ListingRepository listingRepository;
+    private final int LISTING_SUGGESTIONS_LIMIT = 3;
 
     public ListingServiceImpl(ListingRepository listingRepository) {
         this.listingRepository = listingRepository;
@@ -28,5 +29,11 @@ public class ListingServiceImpl implements ListingService {
         OptionalDouble price = listings.stream().mapToDouble(ProcessedListings::getPrice).average();
         return price.orElse(0.0);
 
+    }
+
+    @Override
+    public List<ProcessedListings> getListingsByPrice(Double price) {
+        return listingRepository
+                .findClosestListingsByPrice(price, LISTING_SUGGESTIONS_LIMIT);
     }
 }

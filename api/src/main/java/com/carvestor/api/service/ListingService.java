@@ -7,4 +7,5 @@ import java.util.List;
 public interface ListingService {
     List<ProcessedListings> getListings();
     Double getPrice(ListingSearchCriteria searchCriteria);
+    List<ProcessedListings> getListingsByPrice(Double price);
 }
