@@ -17,13 +17,13 @@ public class ProcessedListings {
     private String priceCurrency;
     private String brand;
     private String model;
-    private String mileage;
+    private Integer mileage;
     private String bodyType;
     private String condition;
     private String fuelType;
     private String transmission;
-    private String engineCapacity;
-    private String yearOfManufacture;
+    private Integer engineCapacity;
+    private Integer yearOfManufacture;
     private String trimEdition;
     private String listingDate;
     private String scrapedDate;

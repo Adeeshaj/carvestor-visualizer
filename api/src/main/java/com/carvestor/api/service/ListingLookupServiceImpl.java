@@ -10,10 +10,11 @@ import java.util.List;
 import java.util.OptionalDouble;
 
 @Service
-public class ListingServiceImpl implements ListingService {
+public class ListingLookupServiceImpl implements ListingLookupService {
     private final ListingRepository listingRepository;
+    private final int listingSuggestionslimit = 3;
 
-    public ListingServiceImpl(ListingRepository listingRepository) {
+    public ListingLookupServiceImpl(ListingRepository listingRepository) {
         this.listingRepository = listingRepository;
     }
 
@@ -29,4 +30,11 @@ public class ListingServiceImpl implements ListingService {
         return price.orElse(0.0);
 
     }
+
+    @Override
+    public List<ProcessedListings> getListingsByPrice(Double price) {
+        return listingRepository
+                .findClosestListingsByPrice(price, listingSuggestionslimit);
+    }
+
 }
